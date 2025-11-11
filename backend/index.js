@@ -1,6 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
-
+import UserRoutes from './users/routes.js'
 dotenv.config()
 
 const app= express()
@@ -13,3 +13,7 @@ app.listen(port, ()=>{
 app.get('/', (req, res)=>{
     res.send('Hello')
 })
+
+app.use(express.json())
+
+app.use('/users', UserRoutes)
